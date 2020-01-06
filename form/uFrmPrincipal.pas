@@ -111,28 +111,29 @@ var
   objeto, champion: ISuperObject;
   uri, summoner, name: String;
 begin
-  if edtSummonerName.Text = '' then
-    raise Exception.Create('Coloque o nome de invocador!');
+  try
+    summoner := getSummonerId(edtSummonerName.Text);
 
-  summoner := getSummonerId(edtSummonerName.Text);
+    uri := 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/'+summoner+'?api_key=' + key;
 
-  uri := 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/'+summoner+'?api_key=' + key;
+    request := CoXMLHTTP.Create;
+    request.open('GET', uri, false, EmptyParam, EmptyParam);
+    request.send(EmptyParam);
 
-  request := CoXMLHTTP.Create;
-  request.open('GET', uri, false, EmptyParam, EmptyParam);
-  request.send(EmptyParam);
+    objeto := SO(request.responseText);
+    champion := SO(objeto.AsArray.S[0]);
 
-  objeto := SO(request.responseText);
-  champion := SO(objeto.AsArray.S[0]);
+    name := getChampionName(champion.AsObject.S['championId']);
 
-  name := getChampionName(champion.AsObject.S['championId']);
+    lblChampionId.Caption   := 'Champion Name: ' + name;
+    lblChest.Caption        := 'Chest: ' + champion.AsObject.S['chestGranted'];
+    lblMastery.Caption      := 'Mastery: '+ champion.AsObject.S['championPoints'];
+    lblLevelMastery.Caption := 'Level Mastery: ' + champion.AsObject.S['championLevel'];
 
-  lblChampionId.Caption   := 'Champion Name: ' + name;
-  lblChest.Caption        := 'Chest: ' + champion.AsObject.S['chestGranted'];
-  lblMastery.Caption      := 'Mastery: '+ champion.AsObject.S['championPoints'];
-  lblLevelMastery.Caption := 'Level Mastery: ' + champion.AsObject.S['championLevel'];
+    GetImageByUrl('http://ddragon.leagueoflegends.com/cdn/8.11.1/img/champion/'+name+'.png', icon.Picture);
+  except
 
-  GetImageByUrl('http://ddragon.leagueoflegends.com/cdn/8.11.1/img/champion/'+name+'.png', icon.Picture);
+  end;
 end;
 
 procedure TfrmPrincipal.GetImageByUrl(URL: string; APicture: TPicture);
