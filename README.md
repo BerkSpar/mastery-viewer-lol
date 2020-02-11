@@ -1,7 +1,7 @@
 # Mastery Visualizer LoL
 
 <h3>What is it?</h3>
-It is a program that uses <b>League of Legends API</b> to show your main champion and your stats by nickname.
+It is a program that uses <b>League of Legends API</b> to show your main champion and your mastery points by nickname.
 
 <h3>How to code</h3>
 
