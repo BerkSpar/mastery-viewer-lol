@@ -58,6 +58,7 @@
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <SanitizedProjectName>project</SanitizedProjectName>
+        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\superobject\demos\PropertyEditor;modules\superobject\demos\RTTI;modules\superobject\demos\VirtualTreeView;modules\superobject\demos\googlesearch;modules\superobject\demos\googlesuggest;modules\superobject;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DataSnapServerMidas;DBXDb2Driver;DBXInterBaseDriver;ZComponent;vclactnband;ZCore;vclFireDAC;ACBr_TEFD;emsclientfiredac;DataSnapFireDAC;svnui;tethering;FireDACADSDriver;DBXMSSQLDriver;ACBr_MDFeDamdfeRL;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;PngComponentsD;vcltouch;ACBr_NFe;ACBrDFeReportRL;vcldb;bindcompfmx;svn;Intraweb;DBXOracleDriver;inetdb;ACBr_NFeDanfeESCPOS;ACBr_Diversos;ACBr_TXTComum;FmxTeeUI;emsedge;FireDACIBDriver;fmx;fmxdae;vclib;ACBr_Ponto;FireDACDBXDriver;dbexpress;IndyCore;vclx;ZParseSql;dsnap;DataSnapCommon;emsclient;FireDACCommon;ACBr_PCNComum;RESTBackendComponents;DataSnapConnectors;ACBR_DeSTDA;VCLRESTComponents;soapserver;ACBr_SAT;vclie;bindengine;DBXMySQLDriver;FireDACOracleDriver;CloudService;FireDACMySQLDriver;DBXFirebirdDriver;ACBr_PAF;ACBr_SATECFVirtual;ACBr_Sintegra;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;ACBr_TCP;ACBr_CTeDacteRL;vcl;IndyIPServer;DBXSybaseASEDriver;ACBr_CTe;ACBr_SATExtratoESCPOS;IndySystem;ACBr_NFeDanfeRL;FireDACDb2Driver;ACBr_Integrador;dsnapcon;ACBr_synapse;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;ZDbc;TeeDB;FireDAC;ACBr_SPEDImportar;ACBr_SPED;ACBr_MDFe;emshosting;ACBr_Comum;ACBr_BoletoRL;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;ACBr_LFD;FireDACTDataDriver;DBXOdbcDriver;FMXTee;soaprtl;DbxCommonDriver;ibxpress;Tee;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;ibxbindings;rtl;emsserverresource;DbxClientDriver;FireDACDSDriver;DBXSybaseASADriver;ACBr_OpenSSL;CustomIPTransport;vcldsnap;ACBr_DFeComum;ACBr_Convenio115;bindcomp;appanalytics;ZPlain;DBXInformixDriver;ACBr_Serial;IndyIPClient;frce;bindcompvcl;TeeUI;ACBr_BlocoX;RtmRxCtl260;dbxcds;VclSmp;ACBr_NFCeECFVirtual;adortl;FireDACODBCDriver;RtmRxDB260;DelPrintDX103;DataSnapIndy10ServerTransport;ACBr_Boleto;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;ACBr_SEF2;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
@@ -83,6 +84,10 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_ExeOutput>.\windows</DCC_ExeOutput>
+        <DCC_DcuOutput>.\dcu</DCC_DcuOutput>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -122,6 +127,11 @@
                 <Source>
                     <Source Name="MainSource">project.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\DataExplorerDBXPluginEnt260.bpl">DBExpress Enterprise Data Explorer Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="Win32\Debug\project.exe" Configuration="Debug" Class="ProjectOutput">

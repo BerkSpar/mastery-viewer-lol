@@ -1,0 +1,14 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2021-03-16T14:18:17.2354458-03:00",
+	"installedModules": {
+		"https://github.com/hgourvest/superobject": {
+			"name": "superobject",
+			"version": "master",
+			"hash": "319764d1e022878b62d54b1f33d04b6a",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}
